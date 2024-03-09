@@ -1,10 +1,14 @@
 'use client';
+import useLoginModal from "@/app/hooks/useLoginModal";
+import useRegisterModal from "@/app/hooks/useRegisterModal";
 import { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
 const UserMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const loginModal = useLoginModal();
+  const registerModal = useRegisterModal();
 
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
@@ -28,7 +32,7 @@ const UserMenu = () => {
             cursor-pointer
           "
         >
-          Airbnb your home
+          Luxury home
         </div>
         <div 
         onClick={toggleOpen}
@@ -72,12 +76,12 @@ const UserMenu = () => {
           <div className="flex flex-col cursor-pointer">
           <>
                 <MenuItem
-                  label="My trips" 
-                  onClick={()=> {}}
+                  label="Login" 
+                  onClick={loginModal.onOpen}
                 />
                 <MenuItem 
-                  label="My favorites" 
-                  onClick={()=> {}}
+                  label="Signup" 
+                  onClick={registerModal.onOpen}
                 />
     
               </>
