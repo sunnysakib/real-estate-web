@@ -143,7 +143,7 @@ const RegisterModal= () => {
       body={bodyContent}
       footer={footerContent}
     />
-  );
+  ); 
 }
 
 export default RegisterModal;
